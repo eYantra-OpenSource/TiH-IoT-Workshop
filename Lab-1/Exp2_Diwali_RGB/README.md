@@ -1,4 +1,4 @@
-# Exp 1: Diwali lights with RGB LED
+# Exp 2: Diwali lights with RGB LED
 
 ### Aim
 
