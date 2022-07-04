@@ -1,19 +1,19 @@
-- # Exp 3: Monitor air quality around with DHT11
+# Exp 3: Monitor air quality around with DHT11
 
-  ### Aim
+### Aim
 
-  Monitor the temperature and humidity around with DHT11.
+Monitor the temperature and humidity around with DHT11.
 
-  ---
+---
 
-  ### Target
+### Target
 
-  eYFi-Mega dev board (ATmega2560) [products.e-yantra.org/eyfi-mega/](products.e-yantra.org/eyfi-mega/)
+eYFi-Mega dev board (ATmega2560) [products.e-yantra.org/eyfi-mega/](products.e-yantra.org/eyfi-mega/)
 
-  ---
+---
 
-  ### Connections
+### Connections
 
-  - DHT11 Data   ->   PA3   ->   Arduino pin 25
+- DHT11 Data   ->   PA3   ->   Arduino pin 25
 
   
