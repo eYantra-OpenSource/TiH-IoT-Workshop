@@ -35,14 +35,14 @@ void setup() {
 void loop() {
   
   // BLUE color
-  digitalWrite(BLUE_LED, LOW);
-  delay(1000);
-  digitalWrite(BLUE_LED, HIGH);
-  delay(1000);
-
+  
+  
   // RED color
   
-
-  // GREEN color
   
+  // GREEN color
+  digitalWrite(GREEN_LED, LOW);
+  delay(1000);
+  digitalWrite(GREEN_LED, HIGH);
+  delay(1000);
 }
