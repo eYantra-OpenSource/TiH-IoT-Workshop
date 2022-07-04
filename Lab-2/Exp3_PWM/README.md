@@ -2,7 +2,7 @@
 
 ### Aim
 
-To control the intensity of bulb using PWM pulses
+To control the intensity of bulb using PWM pulses.
 
 ---
 
@@ -14,7 +14,7 @@ eYFi-Mega dev board (ATmega2560) [products.e-yantra.org/eyfi-mega/](products.e-y
 
 ### Connections
 
-- Terminal 1	  ->	PB4 (OC2A)	 ->	  Arduino pin 10
+- Terminal 1	  ->	PL3 (OC5A)	 ->	  Arduino pin 46
 - Terminal 2	  ->    any GND pin	
 
 ---
