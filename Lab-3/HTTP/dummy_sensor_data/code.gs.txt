@@ -1,0 +1,80 @@
+function doGet(e){
+  // open the spreadsheet
+  var ss = SpreadsheetApp.getActive();
+
+  // use the 'id' parameter to differentiate between sheet
+  var sheet = ss.getSheetByName(e.parameter["id"]);
+
+  // extract headers
+  // getRange accepts row, col, number_of_rows and num_of_cols as argument
+  // getLastColumn returns the position of the last column that has content
+  var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+
+  // store the position of the last row
+  var lastRow = sheet.getLastRow();
+
+  var cell = sheet.getRange('a1');
+  var col = 0;
+  var d = new Date();
+
+  for (i in headers)
+  {
+
+    // loop through the headers and if a parameter name matches the header name insert the value
+    if (headers[i] == "Timestamp")
+    {
+      val = d.toDateString() + ", " + d.toLocaleTimeString();
+    }
+    else
+    {
+      val = e.parameter[headers[i]]; 
+    }
+
+    // append data to the last row
+    cell.offset(lastRow, col).setValue(val);
+    col++;
+  }
+
+  //Checks the last logged data in the sheet, sends email if data greater is than threshold
+
+  var sh = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var lastRow = sh.getLastRow();
+  var lastCol = sh.getLastColumn();
+  var data = sh.getRange(lastRow, lastCol).getValue();
+
+  /////////////////////////////////////////////////////
+   var sheet_thresh = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Threshold");
+    let startRow_thresh = 2; // First row of data to process
+    let numRows_thresh = 2; // Number of rows to process
+
+    const dataRange_thresh = sheet_thresh.getRange(startRow_thresh, 1, sheet_thresh.getLastRow()-1, 2);
+    // Fetch values for each row in the Range.
+    const data_thresh = dataRange_thresh.getValues();
+    for (let row1 of data_thresh) 
+    {
+      const threshold = row1[0];
+    
+  ////////////////////////////////////////////////////
+
+      if(data < threshold)     //set your threshold here
+      {
+        var sheet_e = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Emails");
+        let startRow_e = 2; // First row of data to process
+        let numRows = 2; // Number of rows to process
+
+        const dataRange_e = sheet_e.getRange(startRow_e, 1, sheet_e.getLastRow()-1, 2);
+        // Fetch values for each row in the Range.
+        const data_e = dataRange_e.getValues();
+        for (let row_e of data_e) {
+          const emailAddress = row_e[0]; // First column
+          Logger.log(emailAddress)
+          var message = "Warning! Temperature has crossed the threshold value. Right now, the temperature is " + data + " \n" ;
+          let subject = 'Sending emails from a Weather Monitoring System';
+          //Send emails to emailAddresses which are presents in First column
+          MailApp.sendEmail(emailAddress, subject, message);
+      }
+      ////////////
+      }
+    }
+  
+}
