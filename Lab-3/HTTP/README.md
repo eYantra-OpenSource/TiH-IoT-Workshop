@@ -6,6 +6,7 @@ To Log dummy sensor data to Google Spreadsheet and send alert notification throu
 ---
 
 ### Target
+eYFi-Mega dev board (ATmega2560) products.e-yantra.org/eyfi-mega/
 
 
 - Google Spreadsheet: Database
