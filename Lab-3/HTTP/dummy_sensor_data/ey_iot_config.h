@@ -2,8 +2,8 @@
 #define __EY_IOT_CONFIG_H__
 
 //--------- Wi-Fi --------- 
-#define EY_CONFIG_WIFI_SSID      "Galaxy A520293"
-#define EY_CONFIG_WIFI_PASS      "Batch@20"
+#define EY_CONFIG_WIFI_SSID      "<WiFi-SSID>"
+#define EY_CONFIG_WIFI_PASS      "<WiFi-Pass>"
 
 //--------- MQTT --------- 
 #define EY_CONFIG_MQTT_SERVER_URL 	"mqtt://broker.emqx.io"
@@ -24,6 +24,6 @@
 #define EY_REMOTE_OTA_TIMEOUT_MS	60000
 
 //--------- Database --------- 
-#define SPREADSHEET_ID              "AKfycbxkw5ymQqup_7UTY6qNMm9KH4voc-XIoZEQOBpN3WyiQweIIUVUiTRwHfvowoqDdCD5"
+#define SPREADSHEET_ID              "<Spreadsheet_URL>"
 
 #endif /* __EY_IOT_CONFIG_H__ */
