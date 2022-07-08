@@ -95,7 +95,7 @@ void my_mqtt_disconnect(){
 
 void my_ota_success(){
 	printf("USER: OTA Success\n");
-	ey_mqtt_publish(PUB_TOPIC, "ota-success", 0);
+	//ey_mqtt_publish(PUB_TOPIC, "ota-success", 0);
 	vTaskDelay(2000 / portTICK_PERIOD_MS);
 	esp_restart();
 }
